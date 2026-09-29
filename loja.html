@@ -1,0 +1,120 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
+<title>Loja Roblox</title><link rel="icon" href="/logo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<style>
+:root{--bg:#070a14;--card:#0f1528;--line:#1d2745;--ink:#eef2ff;--mut:#8fa0c8;--blue:#3d7bff}
+*{box-sizing:border-box;margin:0}[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.5 Sora,system-ui,sans-serif}
+button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
+header{position:sticky;top:0;z-index:6;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 14px;background:#070a14ea;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.ib{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;overflow:hidden;padding:0}
+.ib img{width:100%;height:100%;object-fit:cover}#hb i{display:block;width:18px;height:2px;background:var(--ink);box-shadow:0 -6px var(--ink),0 6px var(--ink)}
+#q{order:4;flex:1 1 100%;border-radius:999px;padding:11px 18px}
+.brand{order:3;margin-left:auto;display:flex;align-items:center;gap:10px;font-weight:800;color:inherit;text-decoration:none}
+.lg{width:44px;height:44px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--blue),0 0 20px #3d7bff77}
+@media(min-width:760px){#q{order:3;flex:1 1 0}.brand{order:4;margin-left:0}}
+#nav{position:fixed;inset:0 auto 0 0;width:260px;z-index:9;transform:translateX(-100%);transition:.25s;background:var(--card);border-right:1px solid var(--line);padding:70px 14px;display:flex;flex-direction:column;gap:6px}
+#nav.open{transform:none}#nav.open+#bd{display:block}#bd{display:none;position:fixed;inset:0;z-index:8;background:#0009}
+#nav button{text-align:left;background:none;border:0;padding:12px 14px;border-radius:12px}#nav button:hover{background:var(--line)}
+main{max-width:1100px;margin:0 auto;padding:18px 14px 60px}
+h1{font-size:clamp(26px,5vw,42px);line-height:1.1;font-weight:800;letter-spacing:-.02em}
+h2{font-size:20px;font-weight:800;margin:26px 0 12px}h4{margin:14px 0 8px;font-size:13px;color:var(--mut);font-weight:600}.mut{color:var(--mut)}
+.hero{min-height:230px;border-radius:24px;border:1px solid var(--line);padding:32px;display:flex;align-items:center;background:linear-gradient(90deg,#070a14 12%,#070a14aa 50%,#070a1400),url(/logo.jpg) right 30%/cover}
+.hero div{max-width:520px}.hero p{max-width:34ch;margin-top:10px;color:#c5d0ee}
+.cats{display:flex;gap:14px;overflow-x:auto;padding:4px 2px 32px}
+.cat{flex:none;position:relative;width:104px;height:104px;border-radius:22px;border:2px solid var(--line);padding:0;background:var(--card);transition:.2s}
+.cat img{width:100%;height:100%;object-fit:cover;border-radius:20px;display:block}
+.cat span{position:absolute;top:calc(100% + 7px);left:50%;transform:translateX(-50%);white-space:nowrap;font-size:12px;color:var(--mut);opacity:0;transition:.2s;pointer-events:none}
+.cat:hover,.cat.on{border-color:var(--blue);box-shadow:0 0 22px #3d7bff55}.cat:hover span,.cat:focus-visible span,.cat.on span{opacity:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s}.card:hover{border-color:var(--blue);transform:translateY(-3px)}
+.ph{position:relative;aspect-ratio:4/3;background:#0b1022}.ph>img{width:100%;height:100%;object-fit:cover;display:block}
+.ph i{position:absolute;inset:auto 0 0;padding:26px 10px 8px;font-size:12px;font-style:normal;color:#dbe4ff;background:linear-gradient(transparent,#070a14f2);opacity:0;transition:.2s;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.card:hover .ph i{opacity:1}
+.ph em{position:absolute;inset:0;display:grid;place-items:center;background:#000a;font-style:normal;font-weight:800}
+.card h3{font-size:14px;font-weight:600;padding:10px 12px 4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.row{display:flex;justify-content:space-between;gap:6px;padding:0 12px 12px;font-size:12px;color:var(--mut)}.row b{color:var(--ink)}
+.chip{background:var(--blue);border:0;border-radius:99px;padding:3px 12px;font-size:12px;vertical-align:middle}
+dialog{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:24px;padding:22px;width:min(900px,94vw);max-height:92vh;overflow:auto;margin:auto}
+dialog::backdrop{background:#000b;backdrop-filter:blur(4px)}
+.x{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--bg)}
+.pg{display:grid;gap:20px}@media(min-width:760px){.pg{grid-template-columns:1.1fr 1fr}}
+#big{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;background:#0b1022}
+.th{display:flex;gap:8px;margin-top:8px;overflow-x:auto}.th img{width:64px;height:48px;object-fit:cover;border-radius:8px;cursor:pointer;border:1px solid var(--line)}
+.ds{white-space:pre-line;color:#c5d0ee;max-height:150px;overflow:auto}.vs{display:grid;gap:8px;margin-bottom:14px}
+.v{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);text-align:left}
+.v.on{border-color:var(--blue);background:#3d7bff22}.v:disabled{opacity:.4;cursor:not-allowed}
+.go{display:block;width:100%;background:linear-gradient(135deg,#3d7bff,#6a5cff);border:0;border-radius:14px;padding:14px 22px;font-weight:800;color:#fff}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px;display:grid;gap:10px;max-width:640px}
+input,textarea{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}input:focus,textarea:focus{outline:2px solid var(--blue)}
+.kv{display:flex;align-items:center;gap:10px}.kv span{color:var(--mut);width:64px}.kv code{flex:1;background:var(--bg);padding:8px 10px;border-radius:10px;overflow-wrap:anywhere}.kv button{background:var(--blue);border:0;border-radius:10px;padding:8px 12px}
+.rt button{background:none;border:0;font-size:22px;color:#3a4566}.rt .on{color:#ffc94d}
+.qr{width:220px;height:220px;display:block;margin:12px auto;background:#fff;padding:8px;border-radius:12px}
+.ai{background:#3d7bff18;border:1px solid var(--blue);border-radius:16px;padding:14px;display:grid;gap:10px}
+#t{position:fixed;inset:auto 0 24px;margin:0 auto;width:max-content;max-width:90vw;background:var(--blue);color:#fff;border:0;border-radius:14px;padding:12px 18px}
+</style></head><body>
+<header><button class="ib" id="hb" aria-label="Menu"><i></i></button><span class="ib" id="au"></span><input id="q" type="search" placeholder="Buscar conta (ex.: ovo divino, Blox Fruits…)"><a class="brand" href="/"><img class="lg" src="/logo.jpg" alt=""><b id="nm">Loja Roblox</b></a></header>
+<nav id="nav"><button data-go="home">Início</button><button data-go="my">Minhas compras</button><button data-go="sell">Vender uma conta</button><button data-go="help">Suporte</button></nav><div id="bd"></div>
+<main id="app"></main><dialog id="pm"></dialog><dialog id="px"></dialog><div id="t" popover="manual"></div>
+<script>
+const $=s=>document.querySelector(s),N=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(),
+esc=s=>String(s??'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';'),R=n=>'R$ '+(+n).toFixed(2).replace('.',','),
+STOP='conta contas com de do da dos das um uma e para que tem quero'.split(' ');
+let D={cats:[],prods:[]},cat='',term='',view='home',USER=null;
+const me=()=>USER;
+const api=(p,b)=>fetch('/api/'+p,{method:b?'POST':'GET',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:b&&JSON.stringify(b)}).then(async r=>{const j=await r.json();if(!r.ok)throw Error(j.error||'Erro');return j});
+async function refreshUser(){try{USER=await api('me')}catch{USER=null}auth()}
+const toast=m=>{const t=$('#t');t.textContent=m;t.hidePopover?.();t.showPopover?.();clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidePopover?.(),3200)};
+const from=p=>{const a=p.vars.filter(v=>!v.off);return a.length?Math.min(...a.map(v=>v.price)):null};
+const rate=r=>r.n?`★ ${r.avg.toFixed(1)} (${r.n})`:'★ Novo';
+const card=p=>{const f=from(p);return `<article class="card" data-p="${p.id}"><div class="ph"><img src="${p.imgs[0]||''}" alt="" loading="lazy"><i>${esc(p.desc.slice(0,110))}</i>${f==null?'<em>Esgotado</em>':''}</div><h3>${esc(p.title)}</h3><div class="row"><b>${f==null?'':'a partir de '+R(f)}</b><span>${rate(p.rate)}</span></div></article>`};
+function auth(){const m=me(),a=$('#au');a.innerHTML='';
+ if(m){const i=new Image();i.src=m.picture||'';i.referrerPolicy='no-referrer';i.title='Sair';a.append(i);a.onclick=async()=>{if(confirm('Sair da conta Google?')){try{await api('logout',{})}catch{}USER=null;auth();go('home')}}}
+ else{a.onclick=null;window.google?.accounts.id.renderButton(a,{type:'icon',shape:'circle',theme:'filled_black',size:'large'})}}
+async function loginWithGoogle(credential){try{USER=await api('auth',{credential});auth();render();toast('Login realizado')}catch(e){toast(e.message)}}
+function home(a){
+ const w=N(term).split(/\s+/).filter(x=>x&&!STOP.includes(x)),cn=id=>D.cats.find(c=>c.id===id)?.name;
+ const L=D.prods.filter(p=>(!cat||p.cat===cat)&&w.every(x=>N([p.title,p.desc,cn(p.cat),...p.vars.map(v=>v.name)].join(' ')).includes(x)));
+ a.innerHTML=(term?'':'<section class="hero"><div><h1>Contas de Roblox prontas para jogar</h1><p>Pagou no Pix, recebeu na hora. Entrega automática e suporte de verdade.</p></div></section>')
+ +'<h2>Jogos</h2><div class="cats">'+(D.cats.map(c=>`<button class="cat${c.id===cat?' on':''}" data-c="${c.id}" aria-label="${esc(c.name)}"><img src="${c.img}" alt=""><span>${esc(c.tip)}</span></button>`).join('')||'<p class="mut">Nenhum jogo cadastrado ainda.</p>')+'</div>'
+ +`<h2>${term?'Resultados':'Contas'} ${cat?`<button class="chip" data-x>${esc(cn(cat))} ✕</button>`:''}</h2><div class="grid">${L.map(card).join('')||'<p class="mut">Nenhuma conta encontrada.</p>'}</div>`}
+function show(id){const p=D.prods.find(x=>x.id===id),d=$('#pm'),one=p.vars.length==1&&!p.vars[0].name;let s;
+ d.innerHTML=`<button class="x" onclick="pm.close()">✕</button><div class="pg"><div><img id="big" src="${p.imgs[0]||''}" alt=""><div class="th">${p.imgs.map(u=>`<img src="${u}" onclick="big.src=this.src">`).join('')}</div></div><div><h2 style="margin-top:0">${esc(p.title)}</h2><p class="mut">${rate(p.rate)}</p><h4>Descrição</h4><p class="ds">${esc(p.desc)}</p><h4>${one?'Conta':'Escolha a conta'}</h4><div class="vs">${p.vars.map(v=>`<button class="v" data-v="${v.id}"${v.off?' disabled':''}>${esc(v.name||'Conta completa')}<b>${v.off?'Indisponível':R(v.price)}</b></button>`).join('')}</div><button id="bb" class="go" hidden></button></div></div>`;
+ const pick=b=>{s=p.vars.find(v=>v.id===b.dataset.v);d.querySelectorAll('.v').forEach(x=>x.classList.toggle('on',x===b));bb.hidden=false;bb.textContent='Comprar com Pix · '+R(s.price)};
+ d.querySelectorAll('.v').forEach(b=>b.onclick=()=>pick(b));
+ if(one&&!p.vars[0].off)pick(d.querySelector('.v'));
+ bb.onclick=()=>pay(p,s);d.showModal()}
+async function pay(p,v){
+ if(!me()){$('#pm').close();return toast('Entre com o Google (botão redondo no topo) para comprar')}
+ try{const o=await api('pay',{pid:p.id,vid:v.id});$('#pm').close();const d=$('#px');
+  d.innerHTML=`<button class="x" onclick="px.close()">✕</button><h2 style="margin-top:0">Pague com Pix</h2><p class="mut">${esc(p.title)} — <b>${R(v.price)}</b></p><img class="qr" src="data:image/png;base64,${o.img}" alt="QR Code Pix"><textarea readonly rows="3">${esc(o.code)}</textarea><button class="go" data-copy="${esc(o.code)}" style="margin-top:10px">Copiar código Pix</button><p id="st" class="mut" style="margin-top:10px">Aguardando pagamento… a entrega é automática.</p>`;
+  d.showModal();
+  const iv=setInterval(async()=>{try{const s=await api('order?id='+o.id);if(s.status==='paid'){clearInterval(iv);delivered(s)}else if(s.status==='dead'){clearInterval(iv);$('#st').textContent='Pix expirado. Feche e gere outro.'}}catch{}},4000);
+  d.onclose=()=>clearInterval(iv);api('catalog').then(x=>D=x)
+ }catch(e){toast(e.message)}}
+const kv=(l,v)=>`<div class="kv"><span>${l}</span><code>${esc(v)}</code><button data-copy="${esc(v)}">Copiar</button></div>`;
+function delivered(s){$('#px').innerHTML=`<button class="x" onclick="px.close()">✕</button><h2 style="margin-top:0">✅ Pagamento confirmado</h2><div class="ai"><p>🤖 <b>Assistente de entrega</b></p><p>Tudo certo! Sua conta <b>${esc(s.title)}</b> foi liberada agora mesmo. Use os dados abaixo para entrar no Roblox e troque a senha assim que acessar.</p>${kv('Usuário',s.login)}${kv('Senha',s.senha)}<p class="mut">Ela também ficou salva em “Minhas compras”, na sua conta Google.</p></div>`}
+async function my(a){
+ if(!me())return a.innerHTML='<h2>Minhas compras</h2><p class="mut">Entre com o Google para ver suas contas compradas.</p>';
+ a.innerHTML='<h2>Minhas compras</h2><p class="mut">Carregando…</p>';
+ try{const L=await api('my');a.innerHTML='<h2>Minhas compras</h2>'+(L.map(o=>`<div class="box"><b>${esc(o.title)}</b><small class="mut">${new Date(o.t).toLocaleString('pt-BR')}</small>${kv('Usuário',o.login)}${kv('Senha',o.senha)}<div class="rt">${[1,2,3,4,5].map(n=>`<button data-star="${n}" data-o="${o.id}" class="${n<=(o.stars||0)?'on':''}">★</button>`).join('')}<small class="mut"> Avalie esta compra</small></div></div>`).join('')||'<p class="mut">Você ainda não comprou nenhuma conta.</p>')}catch(e){a.innerHTML=`<p class="mut">${esc(e.message)}</p>`}}
+const F={sell:['Vender uma conta','Conte o que você quer vender. Analisamos o anúncio e falamos com você pelo contato informado.',['Jogo (ex.: Blox Fruits)','Título da conta','Preço desejado (R$)','Seu contato (WhatsApp ou Discord)'],'Descreva a conta: nível, itens, frutas, gamepasses…','Enviar para análise'],help:['Suporte','Descreva o problema. Se for sobre uma compra, informe o título da conta.',['Contato extra (opcional)'],'Como podemos ajudar?','Enviar mensagem']};
+function form(a,v){const f=F[v];a.innerHTML=`<h2>${f[0]}</h2><p class="mut">${f[1]}</p><div class="box" id="fm">${f[2].map(x=>`<input placeholder="${x}">`).join('')}<textarea rows="5" placeholder="${f[3]}"></textarea><button class="go" id="sd">${f[4]}</button></div>`;
+ $('#sd').onclick=async()=>{if(!me())return toast('Entre com o Google para enviar');
+  const t=[...$('#fm').querySelectorAll('input,textarea')].map((e,i)=>(i<f[2].length?f[2][i]+': ':'')+e.value.trim()).join('\n');
+  try{await api('ticket',{kind:v==='sell'?'venda':'suporte',text:t});$('#fm').innerHTML='<p>✅ Recebemos sua mensagem. Respondemos pelo contato informado ou pelo seu e-mail do Google.</p>'}catch(e){toast(e.message)}}}
+const render=()=>view==='home'?home($('#app')):view==='my'?my($('#app')):form($('#app'),view);
+const go=v=>{view=v;$('#nav').classList.remove('open');scrollTo(0,0);render()};
+document.onclick=e=>{const g=x=>e.target.closest(x);let n;
+ if(n=g('[data-c]')){cat=cat===n.dataset.c?'':n.dataset.c;render()}
+ else if(g('[data-x]')){cat='';render()}
+ else if(n=g('[data-p]'))show(n.dataset.p);
+ else if(n=g('[data-go]'))go(n.dataset.go);
+ else if(n=g('[data-copy]')){navigator.clipboard.writeText(n.dataset.copy);toast('Copiado')}
+ else if(n=g('[data-star]'))api('review',{id:n.dataset.o,stars:+n.dataset.star}).then(()=>{toast('Obrigado pela avaliação!');my($('#app'));api('catalog').then(x=>D=x)}).catch(x=>toast(x.message))};
+$('#hb').onclick=()=>$('#nav').classList.toggle('open');$('#bd').onclick=()=>$('#nav').classList.remove('open');
+$('#q').oninput=e=>{term=e.target.value;view='home';render()};
+Promise.all([api('catalog'),new Promise(r=>addEventListener('load',r))]).then(async([d])=>{D=d;nm.textContent=d.name;document.title=d.name;
+ window.google?.accounts.id.initialize({client_id:d.cid,callback:r=>loginWithGoogle(r.credential)});await refreshUser();render()})
+ .catch(()=>$('#app').innerHTML='<p class="mut">Não foi possível carregar a loja. Abra pelo endereço do servidor.</p>');
+</script></body></html>

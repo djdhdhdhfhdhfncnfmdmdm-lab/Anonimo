@@ -1,0 +1,11 @@
+{
+  "name": "loja-roblox",
+  "version": "2.0.0",
+  "private": true,
+  "engines": { "node": ">=18" },
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "google-auth-library": "^10.4.1",
+    "pg": "^8.16.3"
+  }
+}
